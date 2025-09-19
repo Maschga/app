@@ -4,8 +4,7 @@ const emulatorName = "EvccEmulator";
 
 function isDeviceConnected(): boolean {
   try {
-    const result = execSync("adb devices -l").toString();
-    return result.includes("device product:");
+    return execSync("adb devices -l").toString().includes("device product:");
   } catch (error) {
     console.error("Error while checking devices:", error);
     return false;
@@ -26,7 +25,7 @@ function createEmulator(): void {
     const avdList = execSync("emulator -list-avds").toString();
 
     if (!avdList.includes(emulatorName)) {
-      console.log("Emulator does not exist. Creating a new emulator...");
+      console.log("Emulator does not exist. Creating...");
 
       execSync(
         `echo no | avdmanager create avd -n ${emulatorName} -k "system-images;android-36;google_apis;x86_64"`,
@@ -44,9 +43,7 @@ function createEmulator(): void {
 
 try {
   if (isDeviceConnected()) {
-    console.log(
-      "A real device or an emulator is already running. Will not start a new emulator.",
-    );
+    console.log("A real device or an emulator is already running.");
   } else {
     createEmulator();
     startEmulator();
