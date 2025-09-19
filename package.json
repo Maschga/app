@@ -3,9 +3,7 @@
   "version": "1.0.4",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "emulator:android": "node scripts/start-emulator.mts",
-    "test:android": "cd android && gradlew assembleRelease && adb install app/build/outputs/apk/release/app-release.apk && npm run test",
-    "test": "maestro test e2e",
+    "test": "maestro test tests",
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",

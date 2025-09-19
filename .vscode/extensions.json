@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "mastersam.maestro-workbench",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors"
+  ],
+}
