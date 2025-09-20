@@ -58,7 +58,7 @@ function ServerManualScreen({
   );
 
   return (
-    <Layout style={{ flex: 1 }}>
+    <Layout style={{ flex: 1 }} testID="server-manual-screen">
       {memoizedHeader}
       <View style={{ paddingHorizontal: 16 }}>
         <ServerForm

@@ -39,7 +39,7 @@ function SettingsScreen({
   };
 
   return (
-    <Layout style={{ flex: 1, paddingBottom: 32 }}>
+    <Layout style={{ flex: 1, paddingBottom: 32 }} testID="settings-screen">
       <Header
         title={t("servers.changeServer")}
         showDone

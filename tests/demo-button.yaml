@@ -1,0 +1,9 @@
+- launchApp:
+    appId: io.evcc.android
+    clearState: true
+- assertVisible:
+    id: "server-screen"
+- tapOn:
+    id: "use-demo"
+- assertVisible:
+    id: "main-screen"

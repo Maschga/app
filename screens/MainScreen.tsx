@@ -147,7 +147,7 @@ export default function MainScreen({
 
   const LayoutMemoized = useMemo(
     () => (
-      <Layout style={{ flex: 1 }}>
+      <Layout style={{ flex: 1 }} testID="main-screen">
         <Animated.View style={{ flex: 1, opacity: contFade }}>
           <WebView
             basicAuthCredential={basicAuthCredential}

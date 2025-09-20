@@ -137,7 +137,7 @@ export default function ServerScreen({
   }, [navigation]);
 
   return (
-    <Layout style={{ flex: 1, paddingHorizontal: 16 }}>
+    <Layout style={{ flex: 1, paddingHorizontal: 16 }} testID="server-screen">
       <SafeAreaView style={{ flex: 1 }}>
         <Layout style={{ flex: 1 }}>
           <Text style={{ marginVertical: 32 }} category="h2">
@@ -185,6 +185,7 @@ export default function ServerScreen({
             appearance="ghost"
             status="basic"
             onPress={selectDemoServer}
+            testID="use-demo"
           >
             {t("servers.useDemo")}
           </Button>
