@@ -6,30 +6,35 @@ module.exports = {
       config: "e2e/jest.config.js",
     },
     jest: {
-      setupTimeout: 120000, // 2 min
+      setupTimeout: 120000,
     },
   },
   apps: {
     "ios.debug": {
       type: "ios.app",
-      binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/evcc.app",
-      build: "expo run:ios --configuration Debug",
+      binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/YOUR_APP.app",
+      build:
+        "xcodebuild -workspace ios/YOUR_APP.xcworkspace -scheme YOUR_APP -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
     },
     "ios.release": {
       type: "ios.app",
-      binaryPath: "ios/build/Build/Products/Release-iphonesimulator/evcc.app",
-      build: "expo run:ios --configuration Release",
+      binaryPath:
+        "ios/build/Build/Products/Release-iphonesimulator/YOUR_APP.app",
+      build:
+        "xcodebuild -workspace ios/YOUR_APP.xcworkspace -scheme YOUR_APP -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
     },
     "android.debug": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/debug/app-debug.apk",
-      build: "expo run:android --variant debug",
+      build:
+        "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
       reversePorts: [8081],
     },
     "android.release": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/release/app-release.apk",
-      build: "expo run:android --variant release",
+      build:
+        "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
     },
   },
   devices: {
