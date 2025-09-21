@@ -18,7 +18,6 @@ const addDetoxDefaultConfigBlock = (config: string) => {
   return config.replace(
     "defaultConfig {",
     `defaultConfig {
-        // detox-plugin-default-config
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`,
   );
@@ -27,14 +26,16 @@ const addDetoxDefaultConfigBlock = (config: string) => {
 const addDetoxProguardRules = (config: string) => {
   return config.replace(
     `proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"`,
-    `proguardFile "\${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"`,
+    `proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            proguardFile "\${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"`,
   );
 };
 
 const setGradleAndroidTestImplementation = (config: string) => {
   return config.replace(
     "dependencies {",
-    `androidTestImplementation('com.wix:detox:+')
+    `dependencies {
+    androidTestImplementation('com.wix:detox:+')
     implementation 'androidx.appcompat:appcompat:1.1.0'`,
   );
 };

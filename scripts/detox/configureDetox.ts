@@ -5,8 +5,6 @@ import addAndroidTest from "./src/addAndroidTest";
 import enableUnencryptedTraffic from "./src/enableUnencryptedTraffic";
 
 const configureDetox: ConfigPlugin = (config) => {
-  console.log("RUNNNNNNNNNNNNNNNNNNNNNNNNNNNINNNNNNNNNG");
-
   return withPlugins(config, [
     patchProjectGradle,
     patchAppGradle,
