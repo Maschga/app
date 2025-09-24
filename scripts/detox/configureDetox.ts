@@ -1,4 +1,8 @@
-import { ConfigPlugin, withPlugins } from "expo/config-plugins";
+import {
+  ConfigPlugin,
+  createRunOncePlugin,
+  withPlugins,
+} from "expo/config-plugins";
 import patchAppGradle from "./src/patchBuildGradles/patchAppGradle";
 import patchProjectGradle from "./src/patchBuildGradles/patchProjectGradle";
 import addAndroidTest from "./src/addAndroidTest";
@@ -13,4 +17,4 @@ const configureDetox: ConfigPlugin = (config) => {
   ]);
 };
 
-export default configureDetox;
+export default createRunOncePlugin(configureDetox, "configure-detox");
