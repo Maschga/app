@@ -104,6 +104,6 @@ export default ({ config }: ConfigContext) =>
           projectId: "770575d4-8e22-4f9d-8bbf-d1806c5814b9",
         },
       },
-      owner: "evcc-io",
+      owner: "maschga",
     },
   }) satisfies AppJSONConfig;
